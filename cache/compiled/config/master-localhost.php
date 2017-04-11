@@ -1,17 +1,45 @@
 <?php
 return [
     '@class' => 'Grav\\Common\\Config\\CompiledConfig',
-    'timestamp' => 1491919030,
-    'checksum' => '9a1e2d947fc31b0725d3c8b7fcb07880',
+    'timestamp' => 1491919700,
+    'checksum' => '98a78d6c43ac96b43f5d9265dfa3f998',
     'files' => [
         'user/config' => [
+            'media' => [
+                'file' => 'user/config/media.yaml',
+                'modified' => 1491919458
+            ],
+            'plugins/archives' => [
+                'file' => 'user/config/plugins/archives.yaml',
+                'modified' => 1491919669
+            ],
+            'plugins/comments' => [
+                'file' => 'user/config/plugins/comments.yaml',
+                'modified' => 1491919671
+            ],
             'plugins/email' => [
                 'file' => 'user/config/plugins/email.yaml',
                 'modified' => 1491849696
             ],
+            'plugins/feed' => [
+                'file' => 'user/config/plugins/feed.yaml',
+                'modified' => 1491919656
+            ],
             'plugins/jscomments' => [
                 'file' => 'user/config/plugins/jscomments.yaml',
                 'modified' => 1491849696
+            ],
+            'plugins/relatedpages' => [
+                'file' => 'user/config/plugins/relatedpages.yaml',
+                'modified' => 1491919650
+            ],
+            'plugins/simplesearch' => [
+                'file' => 'user/config/plugins/simplesearch.yaml',
+                'modified' => 1491919502
+            ],
+            'plugins/taxonomylist' => [
+                'file' => 'user/config/plugins/taxonomylist.yaml',
+                'modified' => 1491919646
             ],
             'security' => [
                 'file' => 'user/config/security.yaml',
@@ -21,9 +49,13 @@ return [
                 'file' => 'user/config/site.yaml',
                 'modified' => 1491849696
             ],
+            'streams' => [
+                'file' => 'user/config/streams.yaml',
+                'modified' => 1491919458
+            ],
             'system' => [
                 'file' => 'user/config/system.yaml',
-                'modified' => 1491849696
+                'modified' => 1491919622
             ]
         ],
         'system/config' => [
@@ -45,13 +77,9 @@ return [
             ]
         ],
         'user/plugins' => [
-            'plugins/archives' => [
-                'file' => 'user/plugins/archives/archives.yaml',
-                'modified' => 1491849696
-            ],
-            'plugins/comments' => [
-                'file' => 'user/plugins/comments/comments.yaml',
-                'modified' => 1491849696
+            'plugins/admin' => [
+                'file' => 'user/plugins/admin/admin.yaml',
+                'modified' => 1491919457
             ],
             'plugins/email' => [
                 'file' => 'user/plugins/email/email.yaml',
@@ -61,36 +89,162 @@ return [
                 'file' => 'user/plugins/error/error.yaml',
                 'modified' => 1491849698
             ],
-            'plugins/feed' => [
-                'file' => 'user/plugins/feed/feed.yaml',
-                'modified' => 1491849698
-            ],
             'plugins/form' => [
                 'file' => 'user/plugins/form/form.yaml',
                 'modified' => 1491849698
             ],
+            'plugins/login' => [
+                'file' => 'user/plugins/login/login.yaml',
+                'modified' => 1491919453
+            ],
             'plugins/problems' => [
                 'file' => 'user/plugins/problems/problems.yaml',
-                'modified' => 1491849700
-            ],
-            'plugins/relatedpages' => [
-                'file' => 'user/plugins/relatedpages/relatedpages.yaml',
-                'modified' => 1491849700
-            ],
-            'plugins/simplesearch' => [
-                'file' => 'user/plugins/simplesearch/simplesearch.yaml',
-                'modified' => 1491849700
-            ],
-            'plugins/taxonomylist' => [
-                'file' => 'user/plugins/taxonomylist/taxonomylist.yaml',
                 'modified' => 1491849700
             ]
         ]
     ],
     'data' => [
         'plugins' => [
-            'archives' => [
+            'admin' => [
                 'enabled' => true,
+                'route' => '/admin',
+                'cache_enabled' => false,
+                'theme' => 'grav',
+                'logo_text' => '',
+                'body_classes' => '',
+                'sidebar' => [
+                    'activate' => 'tab',
+                    'hover_delay' => 100,
+                    'size' => 'auto'
+                ],
+                'dashboard' => [
+                    'days_of_stats' => 7
+                ],
+                'widgets' => [
+                    'dashboard-maintenance' => true,
+                    'dashboard-statistics' => true,
+                    'dashboard-notifications' => true,
+                    'dashboard-feed' => true,
+                    'dashboard-pages' => true
+                ],
+                'session' => [
+                    'timeout' => 1800
+                ],
+                'warnings' => [
+                    'delete_page' => true
+                ],
+                'edit_mode' => 'normal',
+                'show_github_msg' => true,
+                'google_fonts' => true,
+                'enable_auto_updates_check' => true,
+                'notifications' => [
+                    'feed' => true,
+                    'dashboard' => true,
+                    'plugins' => true,
+                    'themes' => true
+                ],
+                'popularity' => [
+                    'enabled' => true,
+                    'ignore' => [
+                        0 => '/test*',
+                        1 => '/modular'
+                    ],
+                    'history' => [
+                        'daily' => 30,
+                        'monthly' => 12,
+                        'visitors' => 20
+                    ]
+                ]
+            ],
+            'email' => [
+                'enabled' => true,
+                'from' => 'your@email.here',
+                'from_name' => NULL,
+                'to' => 'your@email.here',
+                'to_name' => NULL,
+                'mailer' => [
+                    'engine' => 'mail',
+                    'smtp' => [
+                        'server' => 'localhost',
+                        'port' => 25,
+                        'encryption' => 'none',
+                        'user' => '',
+                        'password' => ''
+                    ],
+                    'sendmail' => [
+                        'bin' => '/usr/sbin/sendmail'
+                    ]
+                ],
+                'content_type' => 'text/html',
+                'debug' => false
+            ],
+            'error' => [
+                'enabled' => true,
+                'routes' => [
+                    404 => '/error'
+                ]
+            ],
+            'form' => [
+                'enabled' => true,
+                'built_in_css' => true,
+                'files' => [
+                    'multiple' => false,
+                    'limit' => 10,
+                    'filesize' => 5,
+                    'destination' => 'self@',
+                    'avoid_overwriting' => false,
+                    'random_name' => false,
+                    'accept' => [
+                        0 => 'image/*'
+                    ]
+                ]
+            ],
+            'login' => [
+                'enabled' => true,
+                'built_in_css' => true,
+                'route' => NULL,
+                'route_register' => false,
+                'route_activate' => '/activate_user',
+                'route_forgot' => '/forgot_password',
+                'route_reset' => '/reset_password',
+                'redirect_after_login' => NULL,
+                'parent_acl' => false,
+                'protect_protected_page_media' => false,
+                'user_registration' => [
+                    'enabled' => true,
+                    'fields' => [
+                        0 => 'username',
+                        1 => 'password',
+                        2 => 'email',
+                        3 => 'fullname',
+                        4 => 'title'
+                    ],
+                    'access' => [
+                        'site' => [
+                            'login' => 'true'
+                        ]
+                    ],
+                    'options' => [
+                        'validate_password1_and_password2' => true,
+                        'set_user_disabled' => false,
+                        'login_after_registration' => true,
+                        'send_activation_email' => false,
+                        'send_notification_email' => false,
+                        'send_welcome_email' => false
+                    ]
+                ],
+                'rememberme' => [
+                    'enabled' => true,
+                    'timeout' => 604800,
+                    'name' => 'grav-rememberme'
+                ]
+            ],
+            'problems' => [
+                'enabled' => true,
+                'built_in_css' => true
+            ],
+            'archives' => [
+                'enabled' => false,
                 'built_in_css' => true,
                 'date_display_format' => 'F Y',
                 'show_count' => true,
@@ -109,7 +263,7 @@ return [
                 ]
             ],
             'comments' => [
-                'enabled' => true,
+                'enabled' => false,
                 'enable_on_routes' => [
                     0 => '/blog'
                 ],
@@ -196,62 +350,44 @@ return [
                     ]
                 ]
             ],
-            'email' => [
-                'enabled' => true,
-                'from' => 'your@email.here',
-                'from_name' => NULL,
-                'to' => 'your@email.here',
-                'to_name' => NULL,
-                'mailer' => [
-                    'engine' => 'mail',
-                    'smtp' => [
-                        'server' => 'localhost',
-                        'port' => 25,
-                        'encryption' => 'none',
-                        'user' => '',
-                        'password' => ''
-                    ],
-                    'sendmail' => [
-                        'bin' => '/usr/sbin/sendmail'
-                    ]
-                ],
-                'content_type' => 'text/html',
-                'debug' => false
-            ],
-            'error' => [
-                'enabled' => true,
-                'routes' => [
-                    404 => '/error'
-                ]
-            ],
             'feed' => [
-                'enabled' => true,
+                'enabled' => false,
                 'limit' => 10,
                 'description' => 'My Feed Description',
                 'lang' => 'en-us',
                 'length' => 500
             ],
-            'form' => [
-                'enabled' => true,
-                'built_in_css' => true,
-                'files' => [
-                    'multiple' => false,
-                    'limit' => 10,
-                    'filesize' => 5,
-                    'destination' => 'self@',
-                    'avoid_overwriting' => false,
-                    'random_name' => false,
-                    'accept' => [
-                        0 => 'image/*'
+            'jscomments' => [
+                'enabled' => false,
+                'provider' => '',
+                'providers' => [
+                    'disqus' => [
+                        'shortname' => ''
+                    ],
+                    'intensedebate' => [
+                        'acct' => ''
+                    ],
+                    'facebook' => [
+                        'appId' => '',
+                        'lang' => 'en_US',
+                        'numposts' => 5,
+                        'colorscheme' => 'light',
+                        'width' => '100%'
+                    ],
+                    'muut' => [
+                        'forum' => '',
+                        'channel' => 'General',
+                        'show_online' => false,
+                        'show_title' => false,
+                        'upload' => false,
+                        'share' => true,
+                        'widget' => false,
+                        'lang' => 'en'
                     ]
                 ]
             ],
-            'problems' => [
-                'enabled' => true,
-                'built_in_css' => true
-            ],
             'relatedpages' => [
-                'enabled' => true,
+                'enabled' => false,
                 'limit' => 5,
                 'show_score' => true,
                 'score_threshold' => 20,
@@ -298,7 +434,7 @@ return [
                 ]
             ],
             'simplesearch' => [
-                'enabled' => true,
+                'enabled' => false,
                 'built_in_css' => true,
                 'display_button' => false,
                 'min_query_length' => 3,
@@ -315,37 +451,8 @@ return [
                 ]
             ],
             'taxonomylist' => [
-                'enabled' => true,
-                'route' => '/blog'
-            ],
-            'jscomments' => [
                 'enabled' => false,
-                'provider' => '',
-                'providers' => [
-                    'disqus' => [
-                        'shortname' => ''
-                    ],
-                    'intensedebate' => [
-                        'acct' => ''
-                    ],
-                    'facebook' => [
-                        'appId' => '',
-                        'lang' => 'en_US',
-                        'numposts' => 5,
-                        'colorscheme' => 'light',
-                        'width' => '100%'
-                    ],
-                    'muut' => [
-                        'forum' => '',
-                        'channel' => 'General',
-                        'show_online' => false,
-                        'show_title' => false,
-                        'upload' => false,
-                        'share' => true,
-                        'widget' => false,
-                        'lang' => 'en'
-                    ]
-                ]
+                'route' => '/blog'
             ]
         ],
         'media' => [

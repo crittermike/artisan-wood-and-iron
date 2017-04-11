@@ -2,7 +2,7 @@
 return [
     '@class' => 'Grav\\Common\\File\\CompiledYamlFile',
     'filename' => '/Users/mcrittenden/Dropbox/Code/artisan-wood-and-iron/user/config/system.yaml',
-    'modified' => 1491849696,
+    'modified' => 1491919622,
     'data' => [
         'home' => [
             'alias' => '/home'
